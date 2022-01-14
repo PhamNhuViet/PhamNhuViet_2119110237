@@ -41,16 +41,16 @@ namespace Cau1
             this.tbName = new System.Windows.Forms.TextBox();
             this.tbnoisinh = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.btnNEW = new System.Windows.Forms.Button();
-            this.btnDELETE = new System.Windows.Forms.Button();
-            this.btnEDIT = new System.Windows.Forms.Button();
-            this.btnEXIT = new System.Windows.Forms.Button();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnNEW = new System.Windows.Forms.Button();
+            this.btnDELETE = new System.Windows.Forms.Button();
+            this.btnEDIT = new System.Windows.Forms.Button();
+            this.btnEXIT = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -147,6 +147,7 @@ namespace Cau1
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -159,44 +160,10 @@ namespace Cau1
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(776, 339);
             this.dataGridView1.TabIndex = 11;
-            // 
-            // btnNEW
-            // 
-            this.btnNEW.Location = new System.Drawing.Point(470, 415);
-            this.btnNEW.Name = "btnNEW";
-            this.btnNEW.Size = new System.Drawing.Size(75, 23);
-            this.btnNEW.TabIndex = 12;
-            this.btnNEW.Text = "Them";
-            this.btnNEW.UseVisualStyleBackColor = true;
-            // 
-            // btnDELETE
-            // 
-            this.btnDELETE.Location = new System.Drawing.Point(551, 415);
-            this.btnDELETE.Name = "btnDELETE";
-            this.btnDELETE.Size = new System.Drawing.Size(75, 23);
-            this.btnDELETE.TabIndex = 13;
-            this.btnDELETE.Text = "Xoa";
-            this.btnDELETE.UseVisualStyleBackColor = true;
-            // 
-            // btnEDIT
-            // 
-            this.btnEDIT.Location = new System.Drawing.Point(632, 415);
-            this.btnEDIT.Name = "btnEDIT";
-            this.btnEDIT.Size = new System.Drawing.Size(75, 23);
-            this.btnEDIT.TabIndex = 14;
-            this.btnEDIT.Text = "Sua";
-            this.btnEDIT.UseVisualStyleBackColor = true;
-            // 
-            // btnEXIT
-            // 
-            this.btnEXIT.Location = new System.Drawing.Point(713, 415);
-            this.btnEXIT.Name = "btnEXIT";
-            this.btnEXIT.Size = new System.Drawing.Size(75, 23);
-            this.btnEXIT.TabIndex = 15;
-            this.btnEXIT.Text = "Thoat";
-            this.btnEXIT.UseVisualStyleBackColor = true;
+            this.dataGridView1.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_RowEnter);
             // 
             // Column1
             // 
@@ -248,6 +215,44 @@ namespace Cau1
             this.Column6.Name = "Column6";
             this.Column6.Width = 125;
             // 
+            // btnNEW
+            // 
+            this.btnNEW.Location = new System.Drawing.Point(470, 415);
+            this.btnNEW.Name = "btnNEW";
+            this.btnNEW.Size = new System.Drawing.Size(75, 23);
+            this.btnNEW.TabIndex = 12;
+            this.btnNEW.Text = "Them";
+            this.btnNEW.UseVisualStyleBackColor = true;
+            // 
+            // btnDELETE
+            // 
+            this.btnDELETE.Location = new System.Drawing.Point(551, 415);
+            this.btnDELETE.Name = "btnDELETE";
+            this.btnDELETE.Size = new System.Drawing.Size(75, 23);
+            this.btnDELETE.TabIndex = 13;
+            this.btnDELETE.Text = "Xoa";
+            this.btnDELETE.UseVisualStyleBackColor = true;
+            this.btnDELETE.Click += new System.EventHandler(this.btnDELETE_Click);
+            // 
+            // btnEDIT
+            // 
+            this.btnEDIT.Location = new System.Drawing.Point(632, 415);
+            this.btnEDIT.Name = "btnEDIT";
+            this.btnEDIT.Size = new System.Drawing.Size(75, 23);
+            this.btnEDIT.TabIndex = 14;
+            this.btnEDIT.Text = "Sua";
+            this.btnEDIT.UseVisualStyleBackColor = true;
+            // 
+            // btnEXIT
+            // 
+            this.btnEXIT.Location = new System.Drawing.Point(713, 415);
+            this.btnEXIT.Name = "btnEXIT";
+            this.btnEXIT.Size = new System.Drawing.Size(75, 23);
+            this.btnEXIT.TabIndex = 15;
+            this.btnEXIT.Text = "Thoat";
+            this.btnEXIT.UseVisualStyleBackColor = true;
+            this.btnEXIT.Click += new System.EventHandler(this.btnEXIT_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -271,6 +276,7 @@ namespace Cau1
             this.Controls.Add(this.label1);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
